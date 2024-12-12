@@ -2,6 +2,11 @@
 these are just my personal-daily-use vim settings, shortcuts and used plugins.
 Propably not relevant for anybody else but me :) 
 
+# Dependencies
+```
+sudo apt install clang
+```
+
 # Installation
 However, it is recommended to check out the repo at any place, execute
 `init_plugins.sh` and then first create a symlink from `~/.vim` to this repo,
