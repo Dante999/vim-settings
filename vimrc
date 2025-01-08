@@ -83,4 +83,7 @@ vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 " shortcut for fuzzy-file-search plugin CtrP
 vnoremap <C-p> :CtrP
 
+" shortcut for selfmade clipboard to share content between vim instances
+vnoremap <C-n> :w! /tmp/vimbuffer
+nnoremap <C-m> :execute "read /tmp/vimbuffer"
 
