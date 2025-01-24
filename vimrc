@@ -72,7 +72,7 @@ autocmd ColorScheme *
         \ highlight link UserTrailingSpaces Error |
         \ match UserTrailingSpaces /\s\+$/ |
         \ highlight UserTodo term=standout cterm=bold ctermfg=109 ctermbg=239 gui=bold guifg=#83a598 guibg=#504945 |
-        \ syntax match UserTodo /.*TODO.*/
+        \ syntax match UserTodo ".*TODO.*"
 
 
 "vmap <C-i> call writefile(getreg('z', 1, 1), "some-file")
