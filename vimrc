@@ -31,7 +31,7 @@ filetype on
 filetype plugin on
 filetype indent on
 
-
+set mouse=a " Enable full mouse support
 
 
 " Commands
@@ -54,8 +54,9 @@ nmap <F8> :TagbarToggle<CR>
 
 " workaround since spellcheck is not properly highlighted when using gruvbox
 command SpellDE execute "highlight SpellBad cterm=underline ctermfg=red | set spell spelllang=de"
+command SpellEN execute "highlight SpellBad cterm=underline ctermfg=red | set spell spelllang=en"
 
-
+command Trim execute ':%s/^\s\+$//g'
 execute pathogen#infect()
 
 " --- start gruvebox plugin (must be after pathogen) ---
@@ -63,6 +64,9 @@ autocmd vimenter * ++nested colorscheme gruvbox
 set bg=dark
 " --- end gruvebox plugin (must be after pathogen) ---
 "
+
+let g:ale_completion_enabled = 1
+let g:ale_cpp_cc_options = '-std=c++17 -Wall'
 
 au BufRead,BufNewFile *.bb set syntax=sh shiftwidth=4 tabstop=4 expandtab
 
