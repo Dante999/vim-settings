@@ -12,7 +12,7 @@ set ignorecase      " Always case-insensitive
 set incsearch       " Searches for strings incrementally
 
 set autoindent      " Auto-indent new lines
-set tabstop=4      " Width
+set tabstop=4       " Width
 set softtabstop=4   " Number of spaces per Tab
 set shiftwidth=4    " Number of auto-indent spaces
 set expandtab       " use spaces instead of tabs
@@ -34,11 +34,29 @@ filetype indent on
 set mouse=a " Enable full mouse support
 
 
+" --- start colorscheme ---
+colorscheme jellybeans
+
+let g:jellybeans_overrides = {
+\    'Todo': { 'guifg': '303030', 'guibg': 'f0f000',
+\              'ctermfg': 'Black', 'ctermbg': 'Yellow',
+\              'attr': 'bold' },
+\}
+
+:highlight ExtraWhitespace ctermbg=red guibg=red
+:match ExtraWhitespace /\s\+$/
+" --- end colorscheme ---
+
+
 " Commands
 command CCfile execute "read ~/.vim/templates/c_file.template"
 command CCfunc execute "read ~/.vim/templates/c_function.template"
 command CCblank execute "read ~/.vim/templates/c_blank.template"
 command CCheader execute "read ~/.vim/templates/c_header.template"
+command SpellDE execute "set spell spelllang=de"
+command SpellEN execute "set spell spelllang=en"
+command Trim execute ':%s/^\s\+$//g'
+
 
 " --- start nerdtree plugin ---
 nnoremap <leader>n :NERDTreeFocus<CR>
@@ -52,42 +70,19 @@ nnoremap <C-f> :NERDTreeFind<CR>
 nmap <F8> :TagbarToggle<CR>
 " --- end targbar plugin ---
 
-" workaround since spellcheck is not properly highlighted when using gruvbox
-command SpellDE execute "highlight SpellBad cterm=underline ctermfg=red | set spell spelllang=de"
-command SpellEN execute "highlight SpellBad cterm=underline ctermfg=red | set spell spelllang=en"
 
-command Trim execute ':%s/^\s\+$//g'
-execute pathogen#infect()
+" --- start CtrP plugin ---
+vnoremap <C-p> :CtrP
+" --- end CtrP plugin ---
 
-" --- start gruvebox plugin (must be after pathogen) ---
-autocmd vimenter * ++nested colorscheme gruvbox
-set bg=dark
-" --- end gruvebox plugin (must be after pathogen) ---
-"
 
-let g:ale_completion_enabled = 1
-let g:ale_cpp_cc_options = '-std=c++17 -Wall'
 
 au BufRead,BufNewFile *.bb set syntax=sh shiftwidth=4 tabstop=4 expandtab
 
-" custom syntax highlighting (must be added like this because gruvebox will
-" clear them otherwise
-autocmd ColorScheme *
-        \ highlight link UserTrailingSpaces Error |
-        \ match UserTrailingSpaces /\s\+$/ |
-        \ highlight UserTodo term=standout cterm=bold ctermfg=109 ctermbg=239 gui=bold guifg=#83a598 guibg=#504945 |
-        \ syntax match UserTodo ".*TODO.*"
-
-
-"vmap <C-i> call writefile(getreg('z', 1, 1), "some-file")
 
 " shortcut for easy search-and-replace a selected text
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 
-" shortcut for fuzzy-file-search plugin CtrP
-vnoremap <C-p> :CtrP
 
-" shortcut for selfmade clipboard to share content between vim instances
-vnoremap <C-n> :w! /tmp/vimbuffer
-nnoremap <C-m> :execute "read /tmp/vimbuffer"
-
+" --- pathogen plugin manager ---
+execute pathogen#infect()

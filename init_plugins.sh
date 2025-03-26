@@ -2,8 +2,8 @@
 
 pushd bundle
 
-git clone https://github.com/dense-analysis/ale.git
-git clone https://github.com/maralla/completor.vim.git
+# code completion
+git clone https://github.com/ycm-core/YouCompleteMe.git
 
 # git plugin
 git clone https://github.com/tpope/vim-fugitive.git
@@ -14,13 +14,10 @@ git clone https://github.com/MattesGroeger/vim-bookmarks.git
 # fuzzy-search for files
 git clone https://github.com/ctrlpvim/ctrlp.vim.git
 
-# color theme
-git clone https://github.com/morhetz/gruvbox.git
-
 # filetree plugin
 git clone https://github.com/preservim/nerdtree.git
 
-# shows function etc in a file
+# shows functions, constants etc. on a sidebar
 git clone https://github.com/preservim/tagbar.git
 
 # modern statusbar on the bottom
