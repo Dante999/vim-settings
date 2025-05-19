@@ -56,8 +56,12 @@ command CCblank execute "read ~/.vim/templates/c_blank.template"
 command CCheader execute "read ~/.vim/templates/c_header.template"
 command SpellDE execute "set spell spelllang=de"
 command SpellEN execute "set spell spelllang=en"
-command Trim execute ':%s/^\s\+$//g'
+command TrimEmpty execute ':%s/^\s\+$//g'
+command Trim execute ':%s/\s\+$//g'
 
+" --- start youcompleteme plugin ---
+nnoremap <C-g> :YcmCompleter GoTo<CR>
+" --- end youcompleteme plugin ---
 
 " --- start nerdtree plugin ---
 nnoremap <leader>n :NERDTreeFocus<CR>
@@ -78,8 +82,9 @@ vnoremap <C-p> :CtrP
 
 
 
-au BufRead,BufNewFile *.bb set syntax=sh shiftwidth=4 tabstop=4 expandtab
-
+au BufRead,BufNewFile *.bb set filetype=bb
+au BufRead,BufNewFile *.c3 set filetype=c3
+let g:c_syntax_for_h = 1
 
 " shortcut for easy search-and-replace a selected text
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
