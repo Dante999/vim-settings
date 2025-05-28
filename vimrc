@@ -38,7 +38,7 @@ set mouse=a " Enable full mouse support
 colorscheme habamax
 
 highlight Todo            ctermfg=Black ctermbg=Yellow guifg=Black guibg=Yellow
-highlight ExtraWhitespace ctermfg=None  ctermbg=Red    guifg=None  guibg=Red
+highlight ExtraWhitespace ctermfg=NONE  ctermbg=Red    guifg=NONE  guibg=Red
 match ExtraWhitespace /\s\+$/
 " --- end colorscheme ---
 
