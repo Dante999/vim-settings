@@ -35,17 +35,11 @@ set mouse=a " Enable full mouse support
 
 
 " --- start colorscheme ---
-"colorscheme jellybeans
 colorscheme habamax
 
-let g:jellybeans_overrides = {
-\    'Todo': { 'guifg': '303030', 'guibg': 'f0f000',
-\              'ctermfg': 'Black', 'ctermbg': 'Yellow',
-\              'attr': 'bold' },
-\}
-
-:highlight ExtraWhitespace ctermbg=red guibg=red
-:match ExtraWhitespace /\s\+$/
+highlight Todo            ctermfg=Black ctermbg=Yellow guifg=Black guibg=Yellow
+highlight ExtraWhitespace ctermfg=None  ctermbg=Red    guifg=None  guibg=Red
+match ExtraWhitespace /\s\+$/
 " --- end colorscheme ---
 
 
